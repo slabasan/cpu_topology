@@ -20,7 +20,7 @@ static void get_children_per_core(hwloc_topology_t topology, hwloc_obj_t obj, in
         pdepth = hwloc_get_type_depth(topology, HWLOC_OBJ_PACKAGE);
         package_obj = hwloc_get_ancestor_obj_by_depth(topology, pdepth, obj);
         
-        printf("%d | %d | %d | %d | %d\n", package_obj->logical_index, core_obj->logical_index, obj->os_index, obj->logical_index, obj->sibling_rank);
+        printf("%d | %d | %d | %d\n", package_obj->logical_index, core_obj->logical_index, obj->os_index, obj->sibling_rank);
     }
     for (i = 0; i < obj->arity; i++)
     {
@@ -48,7 +48,7 @@ void hwloc_topology(int* nsockets, int* ncores, int* nthreads)
     *ncores = hwloc_get_nbobjs_by_type(topology, HWLOC_OBJ_CORE);
     *nthreads = hwloc_get_nbobjs_by_type(topology, HWLOC_OBJ_PU);
 
-    printf("package | cpu_logical_idx | thread_os_idx | thread_logical_idx | thread_sibling\n");
+    printf("package | cpu_logical_idx | thread_os_idx | thread_sibling\n");
     for (i = 0; i < *ncores; i++)
     {
         obj = hwloc_get_obj_by_type(topology, HWLOC_OBJ_CORE, i);
