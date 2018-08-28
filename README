@@ -1,0 +1,8 @@
+Simple hwloc program to test correct mapping of processor mapping.
+
+Dependencies:
+    hwloc library - https://www.open-mpi.org/software/hwloc/v2.0/
+
+Build instructions:
+    make
+    ./main-hwloc
